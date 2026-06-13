@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>给最棒的小涵的❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #ff6b9d;
+  --soft-pink: #ffd1dc;
+  --warm: #fff0f5;
+  --gold: #ffb347;
+  --sky: #87ceeb;
+}
+
+body {
+  font-family: 'ZCOOL KuaiLe', 'PingFang SC', sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E💖%3C/text%3E%3C/svg%3E") 12 12, auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 背景层 */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 25%, #f48fb1 50%, #f8bbd9 75%, #fce4ec 100%);
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 飘落的爱心 */
+.falling-heart {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  animation: fallDown linear forwards;
+  opacity: 0.6;
+  font-size: 20px;
+}
+
+@keyframes fallDown {
+  0% { transform: translateY(-5vh) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* 主容器 */
+.main-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 顶部标题 */
+.title-area {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.main-title {
+  font-size: clamp(28px, 6vw, 48px);
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(255,107,157,0.5), 0 0 20px rgba(255,255,255,0.3);
+  animation: titleFloat 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.sub-title {
+  font-size: clamp(14px, 3vw, 20px);
+  color: rgba(255,255,255,0.85);
+  margin-top: 6px;
+  text-shadow: 1px 1px 4px rgba(255,107,157,0.3);
+}
+
+/* 爱心计数器 */
+.heart-counter {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-size: clamp(16px, 3vw, 22px);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heart-counter.bump {
+  transform: scale(1.3);
+}
+
+/* 消息区 */
+.message-area {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px 25px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 32px rgba(255,107,157,0.15);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.message-text {
+  font-size: clamp(16px, 4vw, 22px);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(255,107,157,0.3);
+  line-height: 1.6;
+  min-height: 1.6em;
+}
+
+/* 互动按钮区 */
+.btn-area {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.magic-btn {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: clamp(14px, 3vw, 18px);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: inherit;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.magic-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.3s;
+}
+
+.magic-btn:hover::after {
+  background: rgba(255,255,255,0.2);
+}
+
+.magic-btn:active {
+  transform: scale(0.92);
+}
+
+.magic-btn:hover {
+  transform: scale(1.08);
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* 大爱心按钮 */
+.big-heart-btn {
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ff8a9e, #ff6b9d, #e91e63);
+  border: 3px solid rgba(255,255,255,0.5);
+  font-size: clamp(36px, 8vw, 52px);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(233,30,99,0.3);
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+}
+
+.big-heart-btn:active {
+  transform: scale(0.85) !important;
+  animation: none;
+}
+
+.big-heart-btn:hover {
+  box-shadow: 0 6px 30px rgba(233,30,99,0.5);
+}
+
+.hint-text {
+  font-size: clamp(12px, 2.5vw, 15px);
+  color: rgba(255,255,255,0.7);
+  margin-top: 5px;
+}
+
+/* 进度条 - 心情 */
+.mood-bar-container {
+  width: 90%;
+  max-width: 420px;
+  margin-top: 12px;
+}
+
+.mood-label {
+  font-size: clamp(13px, 2.5vw, 16px);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.mood-bar-bg {
+  width: 100%;
+  height: 16px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.mood-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff6b9d, #ffb347, #87ceeb, #a8e6cf);
+  background-size: 300% 100%;
+  animation: moodGradient 3s ease infinite;
+  transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes moodGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 点击爆出的爱心 */
+.click-heart {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  font-size: 24px;
+  animation: clickHeartUp 1s ease-out forwards;
+}
+
+@keyframes clickHeartUp {
+  0% { opacity: 1; transform: scale(0.5) translateY(0); }
+  100% { opacity: 0; transform: scale(1.5) translateY(-80px); }
+}
+
+/* 纸屑效果 */
+.confetti {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  animation: confettiFall 2.5s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* 成就弹窗 */
+.achievement-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 200;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 30px 40px;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,0.5);
+  box-shadow: 0 15px 50px rgba(255,107,157,0.3);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.achievement-popup.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.achievement-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.achievement-title {
+  font-size: clamp(20px, 4vw, 28px);
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(255,107,157,0.3);
+  margin-bottom: 6px;
+}
+
+.achievement-desc {
+  font-size: clamp(14px, 3vw, 18px);
+  color: rgba(255,255,255,0.85);
+}
+
+/* 信封动画 */
+.letter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.letter-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.letter-card {
+  background: #fff9fb;
+  border-radius: 20px;
+  padding: 35px 30px;
+  max-width: 380px;
+  width: 90%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(255,107,157,0.3);
+  transform: translateY(30px);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.letter-overlay.show .letter-card {
+  transform: translateY(0);
+}
+
+.letter-title {
+  font-size: 22px;
+  color: var(--pink);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.letter-body {
+  font-size: 16px;
+  color: #666;
+  line-height: 2;
+  text-align: left;
+  white-space: pre-line;
+}
+
+.letter-close {
+  display: block;
+  margin: 20px auto 0;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s;
+}
+
+.letter-close:active {
+  transform: scale(0.95);
+}
+
+/* 打字光标 */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #fff;
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 烟花canvas */
+#fireworkCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* 响应式 */
+@media (max-height: 600px) {
+  .title-area { margin-bottom: 8px; }
+  .message-area { margin-bottom: 10px; padding: 12px 18px; }
+  .big-heart-btn { width: 70px; height: 70px; font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<canvas id="fireworkCanvas"></canvas>
+
+<!-- 飘落爱心容器 -->
+<div id="fallingHearts"></div>
+
+<!-- 爱心计数器 -->
+<div class="heart-counter" id="heartCounter">💖 0</div>
+
+<!-- 主容器 -->
+<div class="main-container">
+  <div class="title-area">
+    <div class="main-title" id="mainTitle">小涵，辛苦了~</div>
+    <div class="sub-title" id="subTitle">今天不用逞强，点一点让我陪陪你 ✨</div>
+  </div>
+
+  <div class="message-area" id="messageArea">
+    <div class="message-text" id="messageText"><span class="typing-cursor"></span></div>
+  </div>
+
+  <div class="btn-area">
+    <button class="magic-btn" onclick="changeMessage()">🌸 换句话</button>
+    <button class="magic-btn" onclick="openLetter()">💌 查信</button>
+    <button class="magic-btn" onclick="fireSuperFirework()">🎆 烟花</button>
+    <button class="magic-btn" onclick="confettiParty()">🎉 撒花</button>
+  </div>
+
+  <button class="big-heart-btn" id="bigHeart" onclick="tapHeart()">❤️</button>
+  <div class="hint-text">疯狂点爱心！</div>
+
+  <div class="mood-bar-container">
+    <div class="mood-label" id="moodLabel">小涵的心情：😢</div>
+    <div class="mood-bar-bg">
+      <div class="mood-bar-fill" id="moodBar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 成就弹窗 -->
+<div class="achievement-popup" id="achievementPopup">
+  <div class="achievement-icon" id="achieveIcon">🏆</div>
+  <div class="achievement-title" id="achieveTitle">成就解锁！</div>
+  <div class="achievement-desc" id="achieveDesc"></div>
+</div>
+
+<!-- 信封 -->
+<div class="letter-overlay" id="letterOverlay">
+  <div class="letter-card">
+    <div class="letter-title">💌 给小涵的一封信</div>
+    <div class="letter-body" id="letterBody"></div>
+    <button class="letter-close" onclick="closeLetter()">收到啦 💕</button>
+  </div>
+</div>
+
+<script>
+// ============ 配置区 ============
+const TARGET_NAME = '小涵';
+
+const MESSAGES = [
+  '四级而已啦，又不是人生终点，下次再来就是了💪',
+  '你比你以为的要厉害得多，只是现在太累了看不到',
+  '期末熬过去就好了，你已经扛了这么久了🤗',
+  '考试没考好不是你的错，你最近真的很辛苦了',
+  '累了就歇一会儿，不用每分钟都那么拼的',
+  '四级过不了天塌不下来，但你累坏了我会心疼的',
+  '压力大的时候别硬扛，有人想替你分担呢💕',
+  '你已经很努力了，别因为一次考试否定自己',
+  '期末不过是一场考试，你的人生不只有分数✨',
+  '今天没考好没关系，你已经很棒了，真的',
+  '烦就烦吧，烦完了我还在，陪你接着走',
+  '你这么拼命，老天爷不会一直让你白忙活的',
+  '深呼吸，把今天的烦心事通通吐出去🌬️',
+  '涵涵，你已经做得很好了，允许自己喘口气',
+  '考试只是一阵子，但你的努力会记一辈子',
+  '辛苦了，真的辛苦了，来让我抱抱🤗',
+  '别给自己太大压力，你的价值不是一张成绩单',
+  '今天不太好没关系，明天睡一觉又是新的开始',
+  '就算全世界都在催你，我只想让你慢一点也没事',
+  '我知道你很累，但你不是一个人在扛💕',
+];
+
+const LETTERS = [
+  `亲爱的小涵：\n\n今天的四级好难，我知道你不开心。\n\n但我想跟你说——一场考试，定义不了你。你的努力、你的认真、你的汗水，这些不会因为一张成绩单就消失。\n\n期末压力大又临近实习，我能感受到你最近一直很忙、很累也一直撑着。但撑不住的时候，可以不用硬撑。累了就说累了，烦了就说烦了，不用假装没事。\n\n四级考不好就下次再来，期末实习难熬就一天一天过。没有过不去的坎，只有太逞强的你。\n\n不管怎样，我都在。你都不是一个人。 💕`,
+
+  `小涵同学：\n\n感觉你今天不太开心，我猜是因为四级叭\n\n你知道吗，我一点都不在乎四级过没过。我在乎的是你——你最近是不是又熬夜了？是不是又没好好吃饭？是不是又在逼自己了？\n\n期末确实烦，课多任务重，再加上马上实习，都累麻了。但你别忘了，你已经扛了这么久了，你比你以为的要厉害好多好多了。\n\n四级只是一个考试，又不是世界末日。但你累坏了我会心疼。\n\n今晚早点睡，明天的事明天再说。\n\n——一直在你身边的那个人 🤗`,
+
+  `涵涵：\n\n如果压力有形状，你大概扛了一座大山。\n\n四级没考好，你觉得白准备了。期末一堆事，你觉得喘不过气。最近什么都不顺，你觉得只有自己这么狼狈。\n\n但是你听我说——\n\n你不是白准备，你只是还没到结果。你不是在喘不过气，你只是在成长的路上深呼吸。你不是狼狈，你只是太用力在生活。\n\n今天的失落我帮你存着，换明天的惊喜。利息是一万个抱抱。\n\n你值得一切好的结果，慢慢来就好 💕\n\n——永远站你这边的我`
+];
+
+const ACHIEVEMENTS = [
+  { count: 10,  icon: '🌟', title: '初次心动', desc: '点了10次爱心，小涵微微一笑' },
+  { count: 25,  icon: '💫', title: '心头一暖', desc: '点了25次爱心，小涵嘴角开始上扬' },
+  { count: 50,  icon: '🌈', title: '阴转多云', desc: '点了50次爱心，乌云正在散去~' },
+  { count: 80,  icon: '☀️', title: '多云转晴', desc: '点了80次爱心，阳光穿透云层了！' },
+  { count: 120, icon: '🦋', title: '翩翩起舞', desc: '点了120次爱心，小涵开始蹦跶了~' },
+  { count: 180, icon: '🎉', title: '快乐满格', desc: '点了180次爱心，心情完全好起来啦！' },
+  { count: 250, icon: '👑', title: '快乐女王', desc: '点了250次爱心，小涵今天最开心！' },
+  { count: 500, icon: '💝', title: '爱意永恒', desc: '点了500次爱心，这份爱永不停歇~' },
+];
+
+const MOOD_FACES = ['😢', '😟', '😐', '🙂', '😊', '😄', '🥰', '🤩'];
+const MOOD_LABELS = ['小涵的心情：', '小涵的心情：', '小涵的心情：', '小涵的心情：', '小涵的心情：', '小涵的心情：', '小涵的心情：', '小涵的心情：'];
+
+// ============ 状态 ============
+let heartCount = 0;
+let unlockedAchievements = new Set();
+let isTransitioning = false;
+let typewriterTimer = null;
+let currentMsgIndex = -1;
+let letterIndex = 0;
+let fallingTimer = null;
+
+// ============ 飘落爱心 ============
+function createFallingHeart() {
+  const container = document.getElementById('fallingHearts');
+  const heart = document.createElement('div');
+  heart.className = 'falling-heart';
+  const hearts = ['💕', '💗', '💖', '❤️', '🩷', '🌸', '✨', '💫'];
+  heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (14 + Math.random() * 18) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 8) + 's';
+  container.appendChild(heart);
+  setTimeout(() => heart.remove(), 13000);
+}
+
+function startFallingHearts() {
+  if (fallingTimer) return;
+  fallingTimer = setInterval(createFallingHeart, 1200);
+}
+
+// ============ 消息系统 ============
+function getRandomMessage() {
+  let idx;
+  do {
+    idx = Math.floor(Math.random() * MESSAGES.length);
+  } while (idx === currentMsgIndex && MESSAGES.length > 1);
+  currentMsgIndex = idx;
+  return MESSAGES[idx];
+}
+
+function typeWriter(text, element, callback) {
+  if (typewriterTimer) clearTimeout(typewriterTimer);
+  element.innerHTML = '';
+  let i = 0;
+  const cursor = '<span class="typing-cursor"></span>';
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML = text.substring(0, i + 1) + cursor;
+      i++;
+      const delay = 40 + Math.random() * 40;
+      typewriterTimer = setTimeout(type, delay);
+    } else {
+      element.innerHTML = text + cursor;
+      if (callback) callback();
+    }
+  }
+  type();
+}
+
+function changeMessage() {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  const msgEl = document.getElementById('messageText');
+  const area = document.getElementById('messageArea');
+
+  area.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    typeWriter(getRandomMessage(), msgEl, () => {
+      isTransitioning = false;
+      area.style.transform = 'scale(1)';
+    });
+  }, 200);
+}
+
+// ============ 点爱心 ============
+function tapHeart() {
+  heartCount++;
+  updateCounter();
+  updateMood();
+  checkAchievements();
+  spawnClickHearts();
+
+  // 每5次换一句话
+  if (heartCount % 5 === 0) {
+    changeMessage();
+  }
+}
+
+function updateCounter() {
+  const counter = document.getElementById('heartCounter');
+  counter.textContent = '💖 ' + heartCount;
+  counter.classList.add('bump');
+  setTimeout(() => counter.classList.remove('bump'), 300);
+}
+
+function updateMood() {
+  const maxForFull = 250;
+  const percent = Math.min(100, (heartCount / maxForFull) * 100);
+  document.getElementById('moodBar').style.width = percent + '%';
+
+  const faceIdx = Math.min(MOOD_FACES.length - 1, Math.floor(percent / (100 / MOOD_FACES.length)));
+  document.getElementById('moodLabel').textContent = '小涵的心情：' + MOOD_FACES[faceIdx];
+}
+
+function checkAchievements() {
+  for (const ach of ACHIEVEMENTS) {
+    if (heartCount >= ach.count && !unlockedAchievements.has(ach.count)) {
+      unlockedAchievements.add(ach.count);
+      showAchievement(ach);
+      break;
+    }
+  }
+}
+
+function showAchievement(ach) {
+  const popup = document.getElementById('achievementPopup');
+  document.getElementById('achieveIcon').textContent = ach.icon;
+  document.getElementById('achieveTitle').textContent = ach.title;
+  document.getElementById('achieveDesc').textContent = ach.desc;
+  popup.classList.add('show');
+
+  // 庆祝烟花
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => launchFirework(), i * 300);
+  }
+
+  setTimeout(() => popup.classList.remove('show'), 2500);
+}
+
+function spawnClickHearts() {
+  const btn = document.getElementById('bigHeart');
+  const rect = btn.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top;
+
+  for (let i = 0; i < 3; i++) {
+    const h = document.createElement('div');
+    h.className = 'click-heart';
+    const hearts = ['💕', '💗', '💖', '🩷', '✨', '❤️'];
+    h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    h.style.left = (cx - 12 + (Math.random() - 0.5) * 60) + 'px';
+    h.style.top = (cy - 10 + Math.random() * 20) + 'px';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1000);
+  }
+}
+
+// ============ 信封 ============
+function openLetter() {
+  const overlay = document.getElementById('letterOverlay');
+  document.getElementById('letterBody').textContent = LETTERS[letterIndex % LETTERS.length];
+  letterIndex++;
+  overlay.classList.add('show');
+}
+
+function closeLetter() {
+  document.getElementById('letterOverlay').classList.remove('show');
+  // 每次看信+5爱心
+  heartCount += 5;
+  updateCounter();
+  updateMood();
+  checkAchievements();
+}
+
+// ============ 烟花系统 ============
+const canvas = document.getElementById('fireworkCanvas');
+const ctx = canvas.getContext('2d');
+let fireworks = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor(x, y, color, velocity, life) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.velocity = velocity;
+    this.life = life;
+    this.maxLife = life;
+    this.gravity = 0.03;
+    this.trail = [];
+  }
+
+  update() {
+    this.trail.push({ x: this.x, y: this.y });
+    if (this.trail.length > 5) this.trail.shift();
+
+    this.velocity.y += this.gravity;
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
+    this.life--;
+  }
+
+  draw(ctx) {
+    const alpha = this.life / this.maxLife;
+    // 拖尾
+    for (let i = 0; i < this.trail.length; i++) {
+      const t = this.trail[i];
+      const a = (i / this.trail.length) * alpha * 0.5;
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = this.color.replace('1)', a + ')');
+      ctx.fill();
+    }
+    // 主粒子
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 3 * alpha, 0, Math.PI * 2);
+    ctx.fillStyle = this.color.replace('1)', alpha + ')');
+    ctx.fill();
+  }
+}
+
+class Firework {
+  constructor(x, targetY) {
+    this.x = x || Math.random() * canvas.width * 0.8 + canvas.width * 0.1;
+    this.y = canvas.height;
+    this.targetY = targetY || Math.random() * canvas.height * 0.3 + canvas.height * 0.1;
+    this.velocity = { x: (Math.random() - 0.5) * 2, y: -(8 + Math.random() * 4) };
+    this.exploded = false;
+    this.particles = [];
+    this.trail = [];
+    const colors = [
+      'rgba(255,107,157,1)', 'rgba(255,179,71,1)', 'rgba(135,206,235,1)',
+      'rgba(168,230,207,1)', 'rgba(255,182,193,1)', 'rgba(255,215,0,1)',
+      'rgba(186,85,211,1)', 'rgba(255,105,180,1)'
+    ];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  update() {
+    if (!this.exploded) {
+      this.trail.push({ x: this.x, y: this.y });
+      if (this.trail.length > 10) this.trail.shift();
+
+      this.x += this.velocity.x;
+      this.y += this.velocity.y;
+      this.velocity.y += 0.1;
+
+      if (this.velocity.y >= 0 || this.y <= this.targetY) {
+        this.explode();
+      }
+    } else {
+      this.particles.forEach(p => p.update());
+      this.particles = this.particles.filter(p => p.life > 0);
+    }
+  }
+
+  explode() {
+    this.exploded = true;
+    const count = 60 + Math.floor(Math.random() * 40);
+
+    // 有概率出心形
+    if (Math.random() < 0.3) {
+      for (let i = 0; i < count; i++) {
+        const t = (i / count) * Math.PI * 2;
+        const hx = 16 * Math.pow(Math.sin(t), 3);
+        const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+        const speed = 0.6 + Math.random() * 0.4;
+        this.particles.push(new Particle(
+          this.x, this.y, this.color,
+          { x: hx * speed * 0.15, y: hy * speed * 0.15 },
+          60 + Math.random() * 30
+        ));
+      }
+    } else {
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 / count) * i;
+        const speed = 2 + Math.random() * 3;
+        this.particles.push(new Particle(
+          this.x, this.y, this.color,
+          { x: Math.cos(angle) * speed, y: Math.sin(angle) * speed },
+          50 + Math.random() * 30
+        ));
+      }
+    }
+  }
+
+  draw(ctx) {
+    if (!this.exploded) {
+      // 火箭拖尾
+      for (let i = 0; i < this.trail.length; i++) {
+        const a = i / this.trail.length;
+        ctx.beginPath();
+        ctx.arc(this.trail[i].x, this.trail[i].y, 2 * a, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,200,${a * 0.5})`;
+        ctx.fill();
+      }
+      // 火箭头
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+    } else {
+      this.particles.forEach(p => p.draw(ctx));
+    }
+  }
+
+  get isDone() {
+    return this.exploded && this.particles.length === 0;
+  }
+}
+
+function launchFirework() {
+  fireworks.push(new Firework());
+}
+
+function fireSuperFirework() {
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => launchFirework(), i * 200);
+  }
+  heartCount += 10;
+  updateCounter();
+  updateMood();
+  checkAchievements();
+}
+
+function animateFireworks() {
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.fillStyle = 'rgba(0,0,0,0.15)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = 'lighter';
+
+  fireworks.forEach(fw => {
+    fw.update();
+    fw.draw(ctx);
+  });
+  fireworks = fireworks.filter(fw => !fw.isDone);
+
+  requestAnimationFrame(animateFireworks);
+}
+
+// ============ 纸屑 ============
+function confettiParty() {
+  const colors = ['#ff6b9d', '#ffb347', '#87ceeb', '#a8e6cf', '#ffd1dc', '#dda0dd', '#f0e68c', '#ff69b4'];
+  for (let i = 0; i < 80; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.top = '-10px';
+      c.style.width = (6 + Math.random() * 8) + 'px';
+      c.style.height = (6 + Math.random() * 8) + 'px';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 4000);
+    }, i * 30);
+  }
+  heartCount += 5;
+  updateCounter();
+  updateMood();
+  checkAchievements();
+}
+
+// ============ 点击特效 ============
+document.addEventListener('click', function(e) {
+  // 排除按钮和互动元素
+  if (e.target.closest('.magic-btn, .big-heart-btn, .letter-close, .letter-overlay')) return;
+
+  const h = document.createElement('div');
+  h.className = 'click-heart';
+  h.textContent = ['✨', '💫', '💕', '🩷'][Math.floor(Math.random() * 4)];
+  h.style.left = e.clientX - 12 + 'px';
+  h.style.top = e.clientY - 12 + 'px';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 1000);
+});
+
+// ============ 标题点击彩蛋 ============
+document.getElementById('mainTitle').addEventListener('click', function() {
+  const titles = [
+    '小涵，辛苦了~',
+    '你比分数重要多了',
+    '小涵已经很努力了！',
+    '慢慢来，不着急',
+    '你不是一个人在扛',
+    '今天允许自己不开心',
+    '睡一觉，明天会好的',
+  ];
+  this.textContent = titles[Math.floor(Math.random() * titles.length)];
+  launchFirework();
+});
+
+// ============ 初始化 ============
+function init() {
+  startFallingHearts();
+  animateFireworks();
+
+  // 延迟显示第一条消息
+  setTimeout(() => {
+    typeWriter(getRandomMessage(), document.getElementById('messageText'));
+  }, 500);
+
+  // 自动轮播消息
+  setInterval(() => {
+    if (!isTransitioning) changeMessage();
+  }, 12000);
+}
+
+init();
+</script>
+</body>
+</html>
